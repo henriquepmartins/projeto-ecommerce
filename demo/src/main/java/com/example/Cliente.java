@@ -1,14 +1,17 @@
+//Importacao de bibliotecas e packages
 package com.example;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 
+//Criacao da classe Cliente
 public class Cliente {
     private String nome;
     private int telefone;
     private boolean clienteJaCadastrado = false;
     static List<Cliente> listaDeClientes = new ArrayList<>();
 
+//Criacao de construtores
     public Cliente(String nome, int telefone) {
         this.nome = nome;
         this.telefone = telefone;
@@ -34,7 +37,7 @@ public class Cliente {
     }
 
 
-    //funcionalidades
+    //Metodos de cadastro, visualizar e checagem de clientes
     public void cadastrarCliente() {
         String nome = JOptionPane.showInputDialog("Informe o nome do cliente:");
         int telefone = Integer.parseInt(JOptionPane.showInputDialog("Informe o telefone do cliente:"));

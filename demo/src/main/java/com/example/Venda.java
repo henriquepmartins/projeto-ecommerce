@@ -1,14 +1,17 @@
+//Importacao de bibliotecas e packages
 package com.example;
 import javax.swing.JOptionPane;
 import java.util.ArrayList;
 import java.util.List;
 
+//Heranca da classe Venda para classe produto
 public class Venda extends Produto{
     private Produto produto = new Produto();
     private List<String> historicoVendas = new ArrayList<>();
     private List<Double> lucroBruto = new ArrayList<>();;
     private int quantidadeVendida;
 
+//Criacao de construtores
     public Produto getProduto() {
         return produto;
     }
@@ -25,7 +28,7 @@ public class Venda extends Produto{
     public Venda() {
 
     }
-    //funcionalidades
+    //Metodo de vender produtos por meio do arraylist ja criado
     public String venderProdutoA(Produto produto) {
         produto.setQuantidade(produto.getQuantidade() - quantidadeVendida);
         double precoUnitario = produto.getPreco(); 
@@ -54,7 +57,7 @@ public class Venda extends Produto{
             JOptionPane.showMessageDialog(null, "Produto não encontrado.");
         }
     }
-    
+    //Metodo para encontrar produto no estoque e listar-lo
     private Produto encontrarProdutoNoEstoque(String nomeProduto) {
         for (Produto p : estoque.listarProdutos()) {
             if (p.getNome().equalsIgnoreCase(nomeProduto)) {
@@ -72,6 +75,7 @@ public class Venda extends Produto{
         JOptionPane.showMessageDialog(null, historico.toString());
     }
     
+    //Metodo para calcular lucro bruto do vendedor
     public double calcularLucroBruto() {
         double lucroTotal = 0.0;
         for (Double lucroVenda : lucroBruto) {

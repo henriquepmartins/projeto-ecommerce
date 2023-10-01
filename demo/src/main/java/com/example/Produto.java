@@ -1,6 +1,8 @@
+//Importacao de bibliotecas e packages
 package com.example;
 import javax.swing.JOptionPane;
 
+//Criacao da classe produto
 public class Produto {
     private String nome;
     private double preco;
@@ -8,6 +10,7 @@ public class Produto {
     private boolean existeProd = false;
     static Estoque estoque = new Estoque();
 
+//Criacao de construtores para classe produto
     public Produto(String nome, double preco, int quantidade) {
         this.nome = nome;
         this.preco = preco;
@@ -42,7 +45,7 @@ public class Produto {
         this.quantidade = quantidade;
     }
 
-    //funcionalidades
+    //Metodos de cadastro de produtos
     public void cadastrarProduto() {
         String nomeProduto = JOptionPane.showInputDialog("Informe o nome do produto:");
         checkProduto(nomeProduto);
@@ -65,6 +68,7 @@ public class Produto {
         }
     }
     
+//Laco de repeticao para achar produto dentro do estoque
     private Produto encontrarProdutoNoEstoque(String nomeProduto) {
         for (Produto p : estoque.listarProdutos()) {
             if (p.getNome().equalsIgnoreCase(nomeProduto)) {
@@ -74,6 +78,8 @@ public class Produto {
         return null;
     }
 
+
+//Laco de repeticao para checagem de produto no estoque
     public void checkProduto(String nome) {    
         
         for (Produto c : estoque.listarProdutos()) {

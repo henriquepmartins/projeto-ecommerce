@@ -1,3 +1,4 @@
+//Importacao de bibliotecas e packages
 package com.example;
 import org.json.JSONArray;
 import org.json.JSONObject;

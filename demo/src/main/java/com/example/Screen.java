@@ -1,7 +1,9 @@
+//Importacao de bibliotecas e packages
 package com.example;
 import javax.swing.*;
 import java.awt.*;
 
+//Heranca da classe Screen para classe JFrame
 public class Screen extends JFrame {
 
     private Cliente cliente = new Cliente();
@@ -9,6 +11,7 @@ public class Screen extends JFrame {
     private Produto produto = new Produto();
     private Venda venda = new Venda();
 
+//Criacao visual da tela principal
     public Screen(Main main) {
         setTitle("Sistema de Vendas");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
