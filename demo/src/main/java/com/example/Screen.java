@@ -1,21 +1,21 @@
-//Importacao de bibliotecas e packages
 package com.example;
+
 import javax.swing.*;
 import java.awt.*;
 
-//Heranca da classe Screen para classe JFrame
 public class Screen extends JFrame {
 
+    // Instâncias das classes Cliente, Estoque, Produto e Venda
     private Cliente cliente = new Cliente();
     private Estoque estoque = new Estoque();
     private Produto produto = new Produto();
     private Venda venda = new Venda();
 
-//Criacao visual da tela principal
+    // Construtor da classe Screen
     public Screen(Main main) {
-        setTitle("Sistema de Vendas");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLayout(new BorderLayout());
+        setTitle("Sistema de Vendas"); // Título da janela
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Ação ao fechar a janela
+        setLayout(new BorderLayout()); // Layout principal da janela
 
         // Painel de boas-vindas
         JPanel welcomePanel = new JPanel();
@@ -24,9 +24,9 @@ public class Screen extends JFrame {
         welcomeLabel.setFont(new Font("Arial", Font.BOLD, 24));
         welcomePanel.add(welcomeLabel);
 
-        // Painel de botões
+        // Layout dos botões
         JPanel buttonPanel = new JPanel();
-        buttonPanel.setLayout(new GridLayout(4, 4, 10, 10));
+        buttonPanel.setLayout(new GridLayout(4, 4, 10, 10)); // Layout dos botões
 
         // Configurações de estilo para os botões
         Font buttonFont = new Font("Poppins", Font.PLAIN, 16);
@@ -35,15 +35,23 @@ public class Screen extends JFrame {
         Dimension buttonSize = new Dimension(200, 50);
         int buttonShadowSize = 5;
 
+        // Array de botões com rótulos e ações associadas
         JButton[] buttons = {
-           createStyledButton("Cadastrar Cliente", buttonFont, buttonBackgroundColor, buttonForegroundColor, buttonSize, buttonShadowSize),
-            createStyledButton("Cadastrar Produto", buttonFont, buttonBackgroundColor, buttonForegroundColor, buttonSize, buttonShadowSize),
-            createStyledButton("Ver Clientes", buttonFont, buttonBackgroundColor, buttonForegroundColor, buttonSize, buttonShadowSize),
-            createStyledButton("Ver Estoque", buttonFont, buttonBackgroundColor, buttonForegroundColor, buttonSize, buttonShadowSize),
-            createStyledButton("Vender Produto", buttonFont, buttonBackgroundColor, buttonForegroundColor, buttonSize, buttonShadowSize),
-            createStyledButton("Calcular Lucro Bruto", buttonFont, buttonBackgroundColor, buttonForegroundColor, buttonSize, buttonShadowSize),
-            createStyledButton("Listar Histórico", buttonFont, buttonBackgroundColor, buttonForegroundColor, buttonSize, buttonShadowSize),
-            createStyledButton("Sair", buttonFont, Color.RED, buttonForegroundColor, buttonSize, buttonShadowSize)
+                createStyledButton("Cadastrar Cliente", buttonFont, buttonBackgroundColor, buttonForegroundColor,
+                        buttonSize, buttonShadowSize),
+                createStyledButton("Cadastrar Produto", buttonFont, buttonBackgroundColor, buttonForegroundColor,
+                        buttonSize, buttonShadowSize),
+                createStyledButton("Ver Clientes", buttonFont, buttonBackgroundColor, buttonForegroundColor, buttonSize,
+                        buttonShadowSize),
+                createStyledButton("Ver Estoque", buttonFont, buttonBackgroundColor, buttonForegroundColor, buttonSize,
+                        buttonShadowSize),
+                createStyledButton("Vender Produto", buttonFont, buttonBackgroundColor, buttonForegroundColor,
+                        buttonSize, buttonShadowSize),
+                createStyledButton("Calcular Lucro Bruto", buttonFont, buttonBackgroundColor, buttonForegroundColor,
+                        buttonSize, buttonShadowSize),
+                createStyledButton("Listar Histórico", buttonFont, buttonBackgroundColor, buttonForegroundColor,
+                        buttonSize, buttonShadowSize),
+                createStyledButton("Sair", buttonFont, Color.RED, buttonForegroundColor, buttonSize, buttonShadowSize)
         };
 
         // Adicionar ação aos botões
@@ -53,7 +61,8 @@ public class Screen extends JFrame {
         buttons[2].addActionListener(e -> cliente.verClientes());
         buttons[3].addActionListener(e -> estoque.verEstoque());
         buttons[1].addActionListener(e -> produto.cadastrarProduto());
-        buttons[5].addActionListener(e -> JOptionPane.showMessageDialog(null, "LUCRO BRUTO: " + venda.calcularLucroBruto() + " R$"));
+        buttons[5].addActionListener(
+                e -> JOptionPane.showMessageDialog(null, "LUCRO BRUTO: " + venda.calcularLucroBruto() + " R$"));
         buttons[7].addActionListener(e -> System.exit(0));
 
         for (JButton button : buttons) {
@@ -64,12 +73,16 @@ public class Screen extends JFrame {
         add(welcomePanel, BorderLayout.NORTH);
         add(buttonPanel, BorderLayout.CENTER);
 
-        pack();
-        setLocationRelativeTo(null);
-        setVisible(true);
+
+        // Configurações da janela
+        pack(); 
+        setLocationRelativeTo(null); 
+        setVisible(true); 
     }
 
-    private JButton createStyledButton(String text, Font font, Color background, Color foreground, Dimension size, int shadowSize) {
+    // Método para criar um botão estilizado
+    private JButton createStyledButton(String text, Font font, Color background, Color foreground, Dimension size,
+            int shadowSize) {
         JButton button = new JButton(text);
         button.setFont(font);
         button.setBackground(background);
@@ -82,6 +95,7 @@ public class Screen extends JFrame {
         return button;
     }
 
+    // Método main para iniciar a aplicação
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
             new Screen(new Main());

@@ -1,26 +1,26 @@
-//Importacao de bibliotecas e packages
 package com.example;
+
 import javax.swing.JOptionPane;
 
-//Criacao da classe produto
 public class Produto {
+    static Estoque estoque = new Estoque();
     private String nome;
     private double preco;
     private int quantidade;
-    private boolean existeProd = false;
-    static Estoque estoque = new Estoque();
 
-//Criacao de construtores para classe produto
+    // Construtor com parâmetros
     public Produto(String nome, double preco, int quantidade) {
         this.nome = nome;
         this.preco = preco;
         this.quantidade = quantidade;
     }
 
+    // Construtor vazio
     public Produto() {
-       
+
     }
 
+    // Métodos getters e setters
     public String getNome() {
         return nome;
     }
@@ -45,20 +45,12 @@ public class Produto {
         this.quantidade = quantidade;
     }
 
-    //Metodos de cadastro de produtos
+    // Metodo para cadastrar um novo produto
     public void cadastrarProduto() {
         String nomeProduto = JOptionPane.showInputDialog("Informe o nome do produto:");
-        checkProduto(nomeProduto);
-        if (existeProd) {
-            int confirmacao = JOptionPane.showConfirmDialog(null, "Produto já existe. Deseja adicionar mais unidades ao estoque?", "Produto Existente", JOptionPane.YES_NO_OPTION);
-            if (confirmacao == JOptionPane.YES_OPTION) {
-                int quantidadeAdicional = Integer.parseInt(JOptionPane.showInputDialog("Informe a quantidade que deseja adicionar do produto " + nomeProduto + ":"));
-                Produto produtoExistente = encontrarProdutoNoEstoque(nomeProduto);
-                produtoExistente.setQuantidade(produtoExistente.getQuantidade() + quantidadeAdicional);
-                JOptionPane.showMessageDialog(null, "Nova quantidade adicionada!");
-            } else {
-                JOptionPane.showMessageDialog(null, "Operação cancelada.");
-            }
+        Produto existeProd = encontrarProdutoNoEstoque(nomeProduto);
+        if (existeProd != null) {
+            adicionarQuantidade(nomeProduto);
         } else {
             double precoProduto = Double.parseDouble(JOptionPane.showInputDialog("Informe o preço do produto:"));
             int quantidadeProduto = Integer.parseInt(JOptionPane.showInputDialog("Informe a quantidade do produto:"));
@@ -67,8 +59,7 @@ public class Produto {
             JOptionPane.showMessageDialog(null, "Produto cadastrado com sucesso!");
         }
     }
-    
-//Laco de repeticao para achar produto dentro do estoque
+    // Metodo para verificar se o produto esa no estoque
     private Produto encontrarProdutoNoEstoque(String nomeProduto) {
         for (Produto p : estoque.listarProdutos()) {
             if (p.getNome().equalsIgnoreCase(nomeProduto)) {
@@ -78,16 +69,19 @@ public class Produto {
         return null;
     }
 
-
-//Laco de repeticao para checagem de produto no estoque
-    public void checkProduto(String nome) {    
-        
-        for (Produto c : estoque.listarProdutos()) {
-            if (c.getNome().equalsIgnoreCase(nome)) {
-                existeProd = true;
-                break;
-            }
-            existeProd = false;
+    // Metodo para adicionar mais unidades do produto ao estoque
+    public void adicionarQuantidade(String nomeProduto) {
+        int confirmacao = JOptionPane.showConfirmDialog(null,
+                "Produto já existe. Deseja adicionar mais unidades ao estoque?", "Produto Existente",
+                JOptionPane.YES_NO_OPTION);
+        if (confirmacao == JOptionPane.YES_OPTION) {
+            int quantidadeAdicional = Integer.parseInt(JOptionPane
+                    .showInputDialog("Informe a quantidade que deseja adicionar do produto " + nomeProduto + ":"));
+            Produto produtoExistente = encontrarProdutoNoEstoque(nomeProduto);
+            produtoExistente.setQuantidade(produtoExistente.getQuantidade() + quantidadeAdicional);
+            JOptionPane.showMessageDialog(null, "Nova quantidade adicionada!");
+        } else {
+            JOptionPane.showMessageDialog(null, "Operação cancelada.");
         }
-    } 
+    }
 }
