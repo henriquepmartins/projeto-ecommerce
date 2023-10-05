@@ -1,54 +1,42 @@
 ## Projeto Ecommerce
-Este é um projeto de compra e venda desenvolvido em Java utilizando o Maven e JavaFX. Ele permite que vendedores insiram os dados dos produtos, como nome, quantidade e valor, além de cadastrar compradores com seus dados básicos. A interface gráfica torna a experiência do usuário mais intuitiva e amigável.
+Este é um projeto de exemplo de um sistema de Ecommerce desenvolvido em Java. O sistema permite o cadastro de clientes, produtos e realiza vendas, mantendo um registro de histórico de vendas e calculando o lucro bruto. 
 
-## Tecnologias
-Aqui estão as tecnologias utilizadas por nós nesse projeto:
+## Criadores
+Este projeto foi desenvolvido por:
+- Carlos Teixeira
+- Davi Tuma
+- Elias Bariani
+- Henrique Pereira
 
-- Java
-- Maven
-- JavaFX
-- Arquivos CSV
+## Tecnologias Utilizadas
+Este projeto foi desenvolvido utilizando as seguintes tecnologias e ferramentas:
+
+- Java: A linguagem de programação principal do projeto; Utilização da biblioteca Swing para criação da interface gráfica.
+- JSON: Para armazenamento de dados de clientes e inicializar variáveis exemplo.
+- Joda-Time: Framework que lida com datas e horários no projeto.
+- Maven: Gerenciador de dependências usada para facilitar a comunicação entre o projeto e bibliotecas/frameworks.
+- Java Swing: Framework que utilizamos para lidar com a interface gráfica.
+
+# Funcionalidades
+O projeto inclui as seguintes funcionalidades:
+
+1.  Cadastro de Clientes: Permite o cadastro de novos clientes com nome e telefone, evitando duplicatas.
+2.  Cadastro de Produtos: Permite o cadastro de novos produtos com nome, preço e quantidade, evitando duplicatas.
+3.  Visualização de Clientes: Exibe todos os clientes cadastrados.
+4.  Visualização de Estoque: Exibe todos os produtos disponíveis no estoque.
+5.  Venda de Produtos: Permite a venda de produtos, atualizando automaticamente o estoque e calculando o lucro bruto.
+6.  Cálculo de Lucro Bruto: Calcula o lucro bruto total com base nas vendas realizadas.
+7.  Histórico de Vendas: Permite visualizar o histórico de vendas realizadas.
 
 
+## Como Usar
+Para utilizar este projeto, siga as instruções abaixo:
 
-# Instalação e Execução
-Siga estas etapas para executar o projeto em sua máquina:
-
-1. Clone este repositório para o seu ambiente local:
-git clone https://github.com/seu-usuario/compra-e-venda.git
-
-2. Navegue até o diretório do projeto:
-cd projeto-ecommerce
-
-3. Compile o projeto usando o Maven:
-mvn clean install (ou selecione o Maven no vscode, clicando as teclas Ctrl + Shift + P)
-
-4. Execute o projeto:
-java -jar target/compra-e-venda-1.0.jar
-(Se estiver no vscode, faça somente até o passo 3)
-
-
-
-# Funcionalidade
-Após a execução, você será apresentado à interface gráfica do aplicativo de compra e venda. Aqui estão algumas das principais funcionalidades:
-
-- Vendedor
-Inserir Produto: Clique no botão "Inserir Produto" para adicionar informações sobre um produto, como nome, quantidade e valor. Após preencher os detalhes, clique em "Salvar" para registrar o produto.
-
-Visualizar Produtos: Clique no botão "Visualizar Produtos" para ver uma lista de todos os produtos cadastrados.
-
-- Comprador
-Cadastrar Comprador: Clique no botão "Cadastrar Comprador" para inserir informações básicas sobre um comprador, como nome, endereço, e-mail, etc. Após preencher os detalhes, clique em "Salvar" para registrar o comprador.
-
-Visualizar Compradores: Clique no botão "Visualizar Compradores" para ver uma lista de todos os compradores cadastrados.
-
-# Compra e Venda
-Realizar Compra/Venda: Para efetuar uma compra ou venda, selecione um comprador da lista de compradores e escolha os produtos desejados da lista de produtos. Informe a quantidade desejada e clique em "Realizar Compra" ou "Realizar Venda" conforme apropriado.
+1. Clonar o Repositório: Clone este repositório em sua máquina local.
+2. Configurar os Arquivos JSON: Certifique-se de ter os arquivos JSON dataClientes.json e dataProdutos.json no diretório src/main/resources. Estes arquivos contêm os dados iniciais de clientes e produtos.
+3. Executar o Programa: Execute a classe Main.java para iniciar o programa. A interface do usuário será exibida.
+4. Usar as Funcionalidades: Use os botões na interface do usuário para acessar as diferentes funcionalidades do sistema.
 
 # Contribuição
 Se desejar contribuir para este projeto, fique à vontade para fazer um fork e enviar um pull request. Agradecemos qualquer contribuição!
-
-Licença
-Este projeto está licenciado sob a Licença MIT.
-
 
