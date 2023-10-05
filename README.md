@@ -1,7 +1,7 @@
-## Projeto Ecommerce
+## Projeto Ecommerce 🏦
 Este é um projeto de exemplo de um sistema de Ecommerce desenvolvido em Java. O sistema permite o cadastro de clientes, produtos e realiza vendas, mantendo um registro de histórico de vendas e calculando o lucro bruto. 
 
-## Criadores
+## Devs
 Este projeto foi desenvolvido por:
 - Carlos Teixeira
 - Davi Tuma
